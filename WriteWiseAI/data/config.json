@@ -1,0 +1,23 @@
+{
+  "app_name": "WriteWise AI",
+  "version": "1.0.0",
+  "theme": "light",
+  "language": "en",
+  "auto_start": false,
+  "typing_delay": 1000,
+  "window": {
+    "title": "WriteWise AI",
+    "width": 800,
+    "height": 600,
+    "min_width": 600,
+    "min_height": 400,
+    "x": null,
+    "y": null
+  },
+  "features": {
+    "enable_tray_icon": true,
+    "enable_start_minimized": false,
+    "enable_auto_update": false
+  },
+  "debug": false
+}

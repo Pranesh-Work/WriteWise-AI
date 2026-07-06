@@ -1,15 +1,21 @@
+"""
+WriteWise AI - Main entry point.
+
+Creates the application, initializes the controller, and starts the event loop.
+"""
+
 import sys
 
-from PySide6.QtWidgets import QApplication, QLabel
+from PySide6.QtWidgets import QApplication
+
+from app.controller import ApplicationController
 
 
-def main():
+def main() -> None:
+    """Main application entry point."""
     app = QApplication(sys.argv)
-
-    label = QLabel("Welcome to WriteWise AI")
-    label.resize(350, 120)
-    label.show()
-
+    controller = ApplicationController(app)
+    controller.start()
     sys.exit(app.exec())
 
 
