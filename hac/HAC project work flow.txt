@@ -1,0 +1,132 @@
+HAC project work flow:
+
+The actual complete working flow
+
+If we imagine the application being used by a college:
+
+Step 1 — Login
+Staff/Warden/Admin
+       ↓
+Login
+       ↓
+Role determined
+Step 2 — Role dashboard
+Mess Staff → Mess Dashboard
+
+Warden → Hostel Dashboard
+
+Super Admin → Admin Control Center
+Step 3 — Mess operation
+Add today's meal
+       ↓
+Enter headcount/details
+       ↓
+Save
+       ↓
+Dashboard updates
+       ↓
+Cloud sync
+       ↓
+Analytics update
+Step 4 — Menu
+Admin
+ ↓
+Menu Management
+ ↓
+Modify Monday/Tuesday/etc.
+ ↓
+Save
+ ↓
+Firebase
+ ↓
+Mess staff sees updated menu
+Step 5 — Hostel operation
+Warden
+ ↓
+Create gate pass
+ ↓
+Pending
+ ↓
+Review
+ ↓
+Approve/Reject
+ ↓
+Receipt
+ ↓
+Complete
+Step 6 — Hostel issue management
+Student problem
+ ↓
+Warden records remark
+ ↓
+Pending
+ ↓
+Issue resolved
+ ↓
+Rectified
+Step 7 — Admin monitoring
+Super Admin
+     ↓
+Mess + Hostel
+     ↓
+Menu
+Cooks
+Blocks
+Gate passes
+Duty logs
+Remarks
+Notifications
+
+
+
+
+
+
+
+
+
+35. Current project maturity
+
+From the code, I'd describe it as:
+
+UI/Frontend             ██████████  Very developed
+Mess module             █████████   Developed
+Hostel module           █████████   Developed
+Gate-pass workflow      █████████   Developed
+Admin management        █████████   Developed
+Cloud synchronization   ███████     Partially robust
+Authentication          ██████      Functional but needs hardening
+Backend architecture    ████        Mostly client + Firebase
+Production security    ███         Needs significant improvement
+Routing                 ███████     One obvious missing route
+
+
+
+
+
+
+
+
+
+
+34. Technology stack
+
+The project uses:
+
+Layer	Technology
+Frontend	React 19
+Build	Vite
+Routing	React Router
+Styling	Tailwind CSS
+Charts	Recharts
+Icons	Lucide React
+Forms	React Hook Form
+Notifications	React Hot Toast
+Database	Firebase Firestore
+Authentication	Firebase Auth + custom auth layer
+Local storage	Browser localStorage
+Realtime tabs	BroadcastChannel
+PDF	jsPDF
+Screenshot/PDF rendering	html2canvas
+Excel	XLSX
+Date handling	date-fns

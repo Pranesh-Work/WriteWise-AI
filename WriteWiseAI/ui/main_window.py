@@ -8,6 +8,7 @@ from typing import TYPE_CHECKING
 
 from PySide6.QtWidgets import QMainWindow, QLabel, QWidget, QVBoxLayout
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QCloseEvent
 
 if TYPE_CHECKING:
     from app.config import ConfigManager
@@ -62,3 +63,8 @@ class MainWindow(QMainWindow):
 
         central_widget.setLayout(layout)
         self.setCentralWidget(central_widget)
+
+    def closeEvent(self, event: QCloseEvent) -> None:
+        """Hide the window instead of exiting the application."""
+        event.ignore()
+        self.hide()

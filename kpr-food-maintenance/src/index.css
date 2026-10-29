@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap');
+@import "tailwindcss";
+
+/* Force Tailwind to use class-based dark mode instead of media query */
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: 'Manrope', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-epic: 'Manrope', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Manrope', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ═══════════════════════════════════════
+   TYPOGRAPHY SYSTEM — Inter (Body & UI) & Manrope (Headings & KPIs)
+═══════════════════════════════════════ */
+
+/* Global Body & UI Elements: Inter 400-500 */
+html,
+body,
+input,
+button,
+select,
+textarea,
+p,
+span,
+div,
+td,
+li,
+a,
+label,
+form,
+option {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings, Section Titles & Numbers: Manrope 700-800 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+.font-epic-pro,
+.app-name-font,
+.font-heading,
+.heading-title,
+.card-header-title,
+.section-header-title,
+.tabular-nums {
+  font-family: 'Manrope', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+}
+
+.font-epic-pro,
+.app-name-font,
+.font-heading {
+  font-family: 'Manrope', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: -0.02em;
+}
+
+/* Navigation & Buttons: Inter 600 */
+button,
+.nav-link,
+a.btn,
+.btn {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════
+   CSS VARIABLES — Petrol Teal & Leaf Green Palette
+═══════════════════════════════════════ */
+:root {
+  /* Primary Petrol Teal */
+  --primary: #174351;
+  --primary-hover: #123743;
+  --primary-light: #1D5060;
+  --primary-border: #286072;
+
+  /* Accent Leaf Green (Highlight from screenshot) */
+  --accent: #52B74A;
+  --accent-hover: #44A03C;
+  --sky: #3DA1D1;
+
+  /* Success Green */
+  --success: #52B74A;
+  --success-hover: #44A03C;
+  --success-light: #1E3F20;
+
+  /* Danger Red */
+  --danger: #D32F2F;
+  --danger-hover: #B71C1C;
+  --danger-light: #3D1A1A;
+
+  /* Warning Orange */
+  --warning: #E65100;
+  --warning-light: #3A2210;
+
+  /* Gold */
+  --gold: #F5A623;
+
+  /* Light Mode Theme */
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --border: #E2E8F0;
+  --border-focus: #174351;
+  --bg-page: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-input: #FFFFFF;
+  --bg-subtle: #F1F5F9;
+  --chart-grid: #E2E8F0;
+  --chart-axis: #64748B;
+  --toast-bg: #FFFFFF;
+}
+
+/* Drawer animations */
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-right {
+  animation: slideRight 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-12px) scale(1.05);
+    opacity: 0.75;
+  }
+}
+
+.animate-float-glow {
+  animation: floatGlow 7s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(82, 183, 74, 0.25), 0 0 45px rgba(28, 83, 98, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(82, 183, 74, 0.45), 0 0 65px rgba(28, 83, 98, 0.35);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+/* Glassmorphism helpers */
+.glass-panel-card {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.glass-hero-panel {
+  background: linear-gradient(135deg, rgba(14, 39, 48, 0.92) 0%, rgba(23, 67, 81, 0.96) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Dark mode overrides — Deep Petrol Teal & Vibrant Leaf Green theme */
+html.dark {
+  --text-primary: #FFFFFF;
+  --text-secondary: #B0D0D8;
+  --text-muted: #7E9FA9;
+  --border: #245767;
+  --border-focus: #52B74A;
+  --bg-page: #0E2730;
+  --bg-card: #174351;
+  --bg-input: #123743;
+  --bg-subtle: #133844;
+  --chart-grid: #245767;
+  --chart-axis: #B0D0D8;
+  --toast-bg: #174351;
+  --primary: #174351;
+  --primary-hover: #1D5060;
+  --primary-light: #215A6C;
+  --primary-border: #2D6A7E;
+}
+
+/* ═══════════════════════════════════════
+   PREMIUM TYPE BOX & FORM INPUT DESIGN SYSTEM
+═══════════════════════════════════════ */
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  height: 2.875rem; /* 46px */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 600;
+  color: var(--text-primary);
+  background-color: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 1rem; /* 16px modern curved corners */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  outline: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Explicit class & utility override when an icon is inside the input box */
+.form-input-has-icon,
+.form-select-has-icon,
+.form-input.pl-10,
+.form-select.pl-10,
+.form-input.pl-11,
+.form-select.pl-11,
+.form-input.pl-12,
+.form-select.pl-12 {
+  padding-left: 2.75rem !important; /* 44px left space ensures zero icon-text overlap */
+}
+
+.form-textarea {
+  height: auto;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-muted);
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.form-input:hover,
+.form-select:hover,
+.form-textarea:hover {
+  border-color: #3DA1D1;
+  background-color: var(--bg-subtle);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: #3DA1D1;
+  background-color: var(--bg-card);
+  box-shadow: 0 0 0 4px rgba(61, 161, 209, 0.18), 0 4px 12px rgba(61, 161, 209, 0.08);
+}
+
+/* Custom styled select arrow */
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%233DA1D1' stroke-width='2.2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.1rem;
+  padding-right: 2.75rem;
+}
+
+/* ═══════════════════════════════════════
+   PRINT MEDIA STYLES — Gate Pass Receipt Print Setup
+═══════════════════════════════════════ */
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  #printable-gatepass,
+  #printable-gatepass * {
+    visibility: visible !important;
+  }
+
+  #printable-gatepass {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 16px !important;
+    box-shadow: none !important;
+    border: 2px solid #000 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-radius: 12px !important;
+  }
+
+  @page {
+    size: A5 portrait;
+    margin: 8mm;
+  }
+}
+
+/* ═══════════════════════════════════════
+   SIDEBAR & LAYOUT CUSTOM UTILITIES
+═══════════════════════════════════════ */
+.custom-sidebar-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+.custom-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ═══════════════════════════════════════
+   APP LAYOUT & FOOTER ALIGNMENT STYLES
+═══════════════════════════════════════ */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.main-area {
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════
+   BUTTON INTERACTIVE EFFECTS & ANIMATIONS
+═══════════════════════════════════════ */
+.btn,
+button {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active,
+button:active {
+  transform: scale(0.96) translateY(1px);
+}
+
+.btn:hover:not(:disabled),
+button:hover:not(:disabled) {
+  transform: translateY(-1.5px);
+}
+
+/* Shine Swipe Overlay Effect on Hover */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(25deg);
+  transition: all 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-shine:hover::after {
+  left: 135%;
+}
+
+/* Green Submit Gate Pass Glow */
+.btn-submit-glow {
+  background: linear-gradient(135deg, #52B74A 0%, #44A03C 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 18px rgba(82, 183, 74, 0.35) !important;
+}
+
+.btn-submit-glow:hover {
+  background: linear-gradient(135deg, #44A03C 0%, #388A31 100%) !important;
+  box-shadow: 0 8px 25px rgba(82, 183, 74, 0.55) !important;
+}
+
+/* Approve Green Glow */
+.btn-approve-glow {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
+}
+
+.btn-approve-glow:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5) !important;
+}
+
+/* Reject Red Glow */
+.btn-reject-glow {
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.35) !important;
+}
+
+.btn-reject-glow:hover {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%) !important;
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5) !important;
+}
+
+/* ═══════════════════════════════════════
+   SUPER ADMIN EXECUTIVE MOBILE THEME SYSTEM (Mobile View Only: < 768px)
+═══════════════════════════════════════ */
+@media (max-width: 767px) {
+  .super-admin-mobile-theme {
+    --bg-page: #001f1f;
+    --bg-card: #002b2b;
+    --bg-input: #002222;
+    --bg-subtle: #003333;
+    --border: #004444;
+    --border-focus: #005555;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B2D8D8;
+    --text-muted: #80BABA;
+    --primary: #005555;
+    --primary-hover: #004444;
+    --primary-light: #006666;
+    --primary-border: #007777;
+    --accent: #F59E0B;
+    --accent-hover: #D97706;
+    background-color: #001f1f !important;
+  }
+
+  .super-admin-mobile-theme .glass-panel-card {
+    background: rgba(0, 43, 43, 0.88) !important;
+    border-color: rgba(0, 85, 85, 0.25) !important;
+    backdrop-filter: blur(16px);
+  }
+
+  .super-admin-mobile-theme .sa-mobile-card {
+    background: linear-gradient(145deg, rgba(0, 51, 51, 0.9) 0%, rgba(0, 34, 34, 0.95) 100%);
+    border: 1px solid rgba(0, 85, 85, 0.25);
+    box-shadow: 0 10px 30px -10px rgba(0, 85, 85, 0.35);
+  }
+
+  .super-admin-mobile-theme .sa-gold-badge {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.22) 0%, rgba(217, 119, 6, 0.12) 100%);
+    border: 1px solid rgba(251, 191, 36, 0.45);
+    color: #FDE68A;
+  }
+
+  .super-admin-mobile-theme .sa-violet-badge {
+    background: linear-gradient(135deg, rgba(0, 85, 85, 0.25) 0%, rgba(0, 68, 68, 0.15) 100%);
+    border: 1px solid rgba(0, 102, 102, 0.4);
+    color: #B2D8D8;
+  }
+
+  .super-admin-mobile-theme .sa-mobile-btn-primary {
+    background: linear-gradient(135deg, #005555 0%, #004444 100%) !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 15px rgba(0, 85, 85, 0.4) !important;
+    border: 1px solid rgba(0, 102, 102, 0.3) !important;
+  }
+}

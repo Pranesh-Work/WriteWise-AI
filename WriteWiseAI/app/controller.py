@@ -103,11 +103,12 @@ class ApplicationController:
 
             # Connect signals
             if self.tray_icon is not None:
+                self.tray_icon.show_requested.connect(self._show_main_window)
                 self.tray_icon.exit_requested.connect(self.shutdown)
 
             # Show main window
             if not self.config.get("features.enable_start_minimized", False):
-                self.main_window.show()
+                self._show_main_window()
                 self._logger.debug("Main window displayed")
 
             self._is_running = True
@@ -116,6 +117,15 @@ class ApplicationController:
         except Exception as e:
             self._logger.error(f"Failed to start application: {e}", exc_info=True)
             raise
+
+    def _show_main_window(self) -> None:
+        """Display and activate the main window."""
+        if self.main_window is None:
+            return
+
+        self.main_window.showNormal()
+        self.main_window.raise_()
+        self.main_window.activateWindow()
 
     def shutdown(self) -> None:
         """

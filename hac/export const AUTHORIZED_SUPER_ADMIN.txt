@@ -1,0 +1,12 @@
+export const AUTHORIZED_SUPER_ADMINS = [
+  '24cb042@kpriet.ac.in',
+  'priansenthilkumar99@gmail.com',
+  'bh.overallcoordinator@kpriet.ac.in',
+  'admin@kpriet.ac.in',
+  'superadmin@kpriet.ac.in',
+  'principal@kpriet.ac.in',
+  'overallcoordinator@kpriet.ac.in',
+  'warden@kpriet.ac.in',
+  'mess@kpriet.ac.in',
+  'mess.staff@kpriet.ac.in',
+];

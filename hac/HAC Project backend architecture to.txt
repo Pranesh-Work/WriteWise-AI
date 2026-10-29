@@ -1,0 +1,54 @@
+HAC Project backend architecture to build:
+
+
+backend/
+│
+├── app/
+│   ├── main.py
+│   │
+│   ├── core/
+│   │   ├── config.py
+│   │   ├── security.py
+│   │   └── database.py
+│   │
+│   ├── models/
+│   │   ├── user.py
+│   │   ├── student.py
+│   │   ├── hostel.py
+│   │   ├── room.py
+│   │   ├── meal.py
+│   │   ├── menu.py
+│   │   ├── gatepass.py
+│   │   ├── complaint.py
+│   │   └── notification.py
+│   │
+│   ├── schemas/
+│   │   ├── auth.py
+│   │   ├── user.py
+│   │   ├── meal.py
+│   │   ├── gatepass.py
+│   │   └── complaint.py
+│   │
+│   ├── routes/
+│   │   ├── auth.py
+│   │   ├── users.py
+│   │   ├── meals.py
+│   │   ├── menu.py
+│   │   ├── hostels.py
+│   │   ├── gatepasses.py
+│   │   ├── complaints.py
+│   │   └── notifications.py
+│   │
+│   ├── services/
+│   │   ├── auth_service.py
+│   │   ├── meal_service.py
+│   │   ├── gatepass_service.py
+│   │   └── notification_service.py
+│   │
+│   └── utils/
+│       └── ...
+│
+├── migrations/
+├── tests/
+├── requirements.txt
+└── .env
